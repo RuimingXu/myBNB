@@ -1,10 +1,6 @@
-#########################################################################################
 # The basic skeleton structure of the project that we initiated is referenced from:     #
 #          "https://github.com/shekhargulati/spring-boot-maven-angular-starter"         #
-# Based on the POM dependecy existed, following the skeleton mvn strucutre, we build    #
-# everything upon that.                                                                 #
-#########################################################################################
-
+# Based on the POM dependecy existed, following the skeleton mvn strucutre, we build everything upon that.                                                
 ###########
 # VERSION #
 ###########

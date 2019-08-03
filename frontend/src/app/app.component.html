@@ -1,0 +1,61 @@
+<div class="wrapper" ng>
+  <!-- Sidebar -->
+  <nav id="sidebar" [ngClass]="this.dragging ? 'active': ''">
+    <div class="sidebar-header">
+      <h3> KIJIJI Rental Search</h3>
+    </div>
+
+    <form #heroForm="ngForm" (ngSubmit)="this.submit()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Search KIJIJI URL</label>
+        <input id="url" type="text" class="form-control" id="exampleInputEmail1"  placeholder="URL" required
+               [(ngModel)]="model.url" name="url">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Display Limit</label>
+        <input id="depth"  type="text" class="form-control" id="exampleInputPassword1" placeholder="Display Limit" required
+               [(ngModel)]="model.limit" name="limit">
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+          <img id="loading" [hidden]="!this.display" src='../assets/Ring-Loading.gif'>
+    </form>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content" [ngClass]="this.dragging ? 'active': ''" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="this.handleClick($event)" >
+          <i class="fas fa-align-left"></i>
+          <span>Toggle Sidebar</span>
+        </button>
+      </div>
+    </nav>
+    <div id="map"> </div>
+    <canvas id="myChart" [hidden]="this.rentals.length == 0"></canvas>
+    <table class="table" [hidden]="this.rentals.length == 0" >
+      <thead>
+      <tr>
+        <th scope="col">Rent</th>
+        <th scope="col">PostDate</th>
+        <th scope="col">Address</th>
+        <th scope="col">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let x of this.rentals">
+        <td> {{x.rent}}</td>
+        <td> {{x.postDate}}</td>
+        <td>{{ x.address }}</td>
+        <td>{{ x.description }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Dark Overlay element -->
+  <div class="overlay"></div>
+</div>
+
+
+
